@@ -13,7 +13,7 @@
 
 <div align="center">
 
-![Apadana Template Preview](./preview.jpg)
+![Apadana Template Preview](IMG_20261014_152312.jpg)
 
 </div>
 
