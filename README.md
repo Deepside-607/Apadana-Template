@@ -1,66 +1,142 @@
-# 🏛️ Apadana Template | تمپلیت آپادانا
+<div align="center">
 
-قالب اختصاصی، پرسرعت و مدرن صفحه اشتراک برای پنل‌های ربکا، مرزبان و پاسارگاد
+# 🏛️ Apadana Template
+### تمپلیت اختصاصی صفحه اشتراک آپادانا
+
+قالبی مدرن، سریع و اختصاصی برای پنل‌های Rebecca، Marzban و Pasarguard
 
 ---
 
+</div>
+
 ## 📸 پیش‌نمایش
 
+<div align="center">
+
 ![Apadana Template Preview](./preview.jpg)
+
+</div>
 
 ---
 
 ## ✨ ویژگی‌های برجسته
 
-- **طراحی اصیل:** نشان برداری فروهر، خطوط کتیبه‌ای میخی و افکت متالیک طلای عیار بالا
-- **بدون باگ اسکرول:** پیمایش کاملاً روان در مرورگرهای موبایل (iOS و Android)
-- **سازگاری کامل:** شاخه main برای ربکا (Pongo2) و شاخه master برای مرزبان و پاسارگاد (Jinja2)
-- **پشتیبانی کامل پروتکل‌ها:** VLESS, VMess, Trojan, Shadowsocks, OpenVPN, WireGuard, Cisco, PPTP/L2TP
-- **دانلود مستقیم:** دکمه مستقیم دانلود فایل‌های ovpn. و conf.
-- **اتصال با یک کلیک:** دیپ‌لینک‌های مستقیم برای Hiddify، v2rayNG، Shadowrocket و Sing-Box
+- 🏛️ **طراحی اصیل ایرانی:** الهام‌گرفته از هنر هخامنشی، نشان فروهر، خطوط کتیبه‌ای و افکت متالیک طلایی.
+- ⚡ **عملکرد سریع و روان:** طراحی بهینه برای مرورگرهای موبایل و دسکتاپ.
+- 📱 **سازگاری با موبایل:** تجربه کاربری مناسب در Android و iOS.
+- 🔧 **پشتیبانی از چند پنل:** شاخه `main` برای Rebecca با Pongo2 و شاخه `master` برای Marzban و Pasarguard با Jinja2.
+- 🌐 **پشتیبانی از پروتکل‌های مختلف:** VLESS، VMess، Trojan، Shadowsocks، OpenVPN، WireGuard، Cisco، PPTP و L2TP.
+- 📥 **دانلود مستقیم کانفیگ:** امکان دانلود فایل‌های `.ovpn` و `.conf`.
+- 🔗 **اتصال سریع:** پشتیبانی از لینک‌های اتصال مستقیم برای Hiddify، v2rayNG، Shadowrocket و Sing-box.
 
 ---
 
-## 🚀 راهنمای نصب
+# 🚀 راهنمای نصب
 
----
+## 🔹 ۱. پنل Marzban
 
-### 🔹 ۱. پنل مرزبان (Marzban)
-
-ابتدا قالب را با لینک زیر دانلود کنید:
+### دانلود قالب
 
 ```bash
-sudo wget -N -P /var/lib/marzban/templates/subscription/ [https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html](https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html)
+sudo mkdir -p /var/lib/marzban/templates/subscription/
 
-سپس دستور زیر را بزنید تا تمپلیت ست شود:
+sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html
+```
+
+### تنظیم قالب
+
+```bash
 echo 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"' | sudo tee -a /opt/marzban/.env
+
 echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /opt/marzban/.env
+```
 
-سپس با دستور زیر پنل خودتون رو ری‌استارت کنید:
+### راه‌اندازی مجدد پنل
+
+```bash
 marzban restart
+```
 
-🔹 ۲. پنل ربکا (Rebecca)
-ابتدا قالب را با لینک زیر دانلود کنید:
-sudo wget -N -P /var/lib/rebecca/templates/subscription/ [https://raw.githubusercontent.com/Deepside-607/Apadana-Template/main/index.html](https://raw.githubusercontent.com/Deepside-607/Apadana-Template/main/index.html)
+---
 
-سپس دستور زیر را بزنید تا تمپلیت ست شود:
+## 🔹 ۲. پنل Rebecca
+
+### دانلود قالب
+
+```bash
+sudo mkdir -p /var/lib/rebecca/templates/subscription/
+
+sudo wget -N -P /var/lib/rebecca/templates/subscription/ https://raw.githubusercontent.com/Deepside-607/Apadana-Template/main/index.html
+```
+
+### تنظیم قالب
+
+```bash
 echo 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/rebecca/templates/"' | sudo tee -a /opt/rebecca/.env
+
 echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /opt/rebecca/.env
+```
 
-سپس با دستور زیر پنل خودتون رو ری‌استارت کنید:
+### راه‌اندازی مجدد پنل
+
+```bash
 rebecca restart
+```
 
-🔹 ۳. پنل پاسارگاد (Pasarguard)
-ابتدا قالب را با لینک زیر دانلود کنید:
-sudo wget -N -P /var/lib/pasarguard/templates/subscription/ [https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html](https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html)
+---
 
-سپس دستور زیر را بزنید تا تمپلیت ست شود:
+## 🔹 ۳. پنل Pasarguard
+
+### دانلود قالب
+
+```bash
+sudo mkdir -p /var/lib/pasarguard/templates/subscription/
+
+sudo wget -N -P /var/lib/pasarguard/templates/subscription/ https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html
+```
+
+### تنظیم قالب
+
+```bash
 echo 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/pasarguard/templates/"' | sudo tee -a /opt/pasarguard/.env
+
 echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /opt/pasarguard/.env
+```
 
-سپس با دستور زیر پنل خودتون رو ری‌استارت کنید:
+### راه‌اندازی مجدد پنل
+
+```bash
 pasarguard restart
+```
 
-📜 لایسنس
-این پروژه تحت مجوز MIT منتشر شده است. استفاده، شخصی‌سازی و بازتوزیع آن کاملاً آزاد و رایگان است.
+---
 
+## 🌿 ساختار شاخه‌ها
+
+| شاخه | پنل | موتور قالب |
+|:---:|:---|:---|
+| `main` | Rebecca | Pongo2 |
+| `master` | Marzban | Jinja2 |
+| `master` | Pasarguard | Jinja2 |
+
+---
+
+## 📜 لایسنس
+
+این پروژه تحت مجوز **MIT** منتشر شده است.
+
+استفاده، ویرایش، شخصی‌سازی و بازتوزیع پروژه مطابق شرایط مجوز MIT آزاد است.
+
+برای اطلاعات بیشتر، فایل `LICENSE` موجود در مخزن را مطالعه کنید.
+
+---
+
+<div align="center">
+
+### 🏛️ Apadana Template
+
+**طراحی اصیل ایرانی، تجربه‌ای مدرن**
+
+Developed by [Deepside-607](https://github.com/Deepside-607)
+
+</div>
