@@ -34,20 +34,20 @@
 
 ## 🔹 ۱. پنل مرزبان (Marzban)
 
-ابتدا قالب را با دستور زیر دانلود کنید:
+### دانلود قالب
 
 ```bash
-sudo wget -N -P /var/lib/marzban/templates/subscription/ [https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html](https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html)
+sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html
 ```
 
-سپس دستور زیر را اجرا کنید تا تمپلیت تنظیم شود:
+### تنظیم قالب
 
 ```bash
 echo 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"' | sudo tee -a /opt/marzban/.env
 echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /opt/marzban/.env
 ```
 
-در نهایت پنل را ری‌استارت کنید:
+### راه‌اندازی مجدد پنل
 
 ```bash
 marzban restart
@@ -57,20 +57,20 @@ marzban restart
 
 ## 🔹 ۲. پنل ربکا (Rebecca)
 
-ابتدا قالب را با دستور زیر دانلود کنید:
+### دانلود قالب
 
 ```bash
-sudo wget -N -P /var/lib/rebecca/templates/subscription/ [https://raw.githubusercontent.com/Deepside-607/Apadana-Template/main/index.html](https://raw.githubusercontent.com/Deepside-607/Apadana-Template/main/index.html)
+sudo wget -N -P /var/lib/rebecca/templates/subscription/ https://raw.githubusercontent.com/Deepside-607/Apadana-Template/main/index.html
 ```
 
-سپس دستور زیر را اجرا کنید تا تمپلیت تنظیم شود:
+### تنظیم قالب
 
 ```bash
 echo 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/rebecca/templates/"' | sudo tee -a /opt/rebecca/.env
 echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /opt/rebecca/.env
 ```
 
-در نهایت پنل را ری‌استارت کنید:
+### راه‌اندازی مجدد پنل
 
 ```bash
 rebecca restart
@@ -80,20 +80,20 @@ rebecca restart
 
 ## 🔹 ۳. پنل پاسارگاد (Pasarguard)
 
-ابتدا قالب را با دستور زیر دانلود کنید:
+### دانلود قالب
 
 ```bash
-sudo wget -N -P /var/lib/pasarguard/templates/subscription/ [https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html](https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html)
+sudo wget -N -P /var/lib/pasarguard/templates/subscription/ https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html
 ```
 
-سپس دستور زیر را اجرا کنید تا تمپلیت تنظیم شود:
+### تنظیم قالب
 
 ```bash
 echo 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/pasarguard/templates/"' | sudo tee -a /opt/pasarguard/.env
 echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /opt/pasarguard/.env
 ```
 
-در نهایت پنل را ری‌استارت کنید:
+### راه‌اندازی مجدد پنل
 
 ```bash
 pasarguard restart
@@ -115,7 +115,7 @@ pasarguard restart
 
 این پروژه تحت مجوز [MIT](https://www.google.com/search?q=LICENSE) منتشر شده است.
 
-استفاده، شخصی‌سازی و بازتوزیع آن آزاد و رایگان است.
+استفاده، شخصی‌سازی و بازتوزیع آن مطابق شرایط مجوز MIT آزاد و رایگان است.
 
 ---
 
