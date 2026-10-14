@@ -818,41 +818,53 @@
     </div>
 </div>
 
-<div id="pongo2-raw-links" style="display: none;">
-    {% for link in user.links %}<span class="raw-config-item">{{ link }}</span>{% endfor %}
+<!-- حامل پنهان لینک‌های عمومی در Jinja2 -->
+<div id="jinja2-raw-links" style="display: none;">
+    {% if user.links is defined and user.links %}
+        {% for link in user.links %}<span class="raw-config-item">{{ link }}</span>{% endfor %}
+    {% endif %}
 </div>
 
+<!-- حامل پنهان متغیرهای پروتکل‌های پنل در Jinja2 -->
 <div id="rebka-raw-container" style="display: none;">
-    {% if ov %}
+    {% if ov is defined and ov %}
         {% for dl in ov.downloads %}
             <span class="rebka-item" data-proto="OPENVPN" data-type="download" data-url="{{ dl }}"></span>
         {% endfor %}
     {% endif %}
 
-    {% if wg %}
-        {% for dl in wg.downloads %}
-            <span class="rebka-item" data-proto="WIREGUARD" data-type="download" data-url="{{ dl }}"></span>
-        {% endfor %}
-        {% for cfg in wg.configs %}
-            <span class="rebka-item" data-proto="WIREGUARD" data-type="config" data-url="{{ cfg }}"></span>
-        {% endfor %}
+    {% if wg is defined and wg %}
+        {% if wg.downloads is defined %}
+            {% for dl in wg.downloads %}
+                <span class="rebka-item" data-proto="WIREGUARD" data-type="download" data-url="{{ dl }}"></span>
+            {% endfor %}
+        {% endif %}
+        {% if wg.configs is defined %}
+            {% for cfg in wg.configs %}
+                <span class="rebka-item" data-proto="WIREGUARD" data-type="config" data-url="{{ cfg }}"></span>
+            {% endfor %}
+        {% endif %}
     {% endif %}
 
-    {% if cisco %}
-        {% for dl in cisco.downloads %}
-            <span class="rebka-item" data-proto="CISCO" data-type="download" data-url="{{ dl }}"></span>
-        {% endfor %}
-        {% for srv in cisco.servers %}
-            <span class="rebka-item" data-proto="CISCO" data-type="server" data-url="{{ srv }}"></span>
-        {% endfor %}
+    {% if cisco is defined and cisco %}
+        {% if cisco.downloads is defined %}
+            {% for dl in cisco.downloads %}
+                <span class="rebka-item" data-proto="CISCO" data-type="download" data-url="{{ dl }}"></span>
+            {% endfor %}
+        {% endif %}
+        {% if cisco.servers is defined %}
+            {% for srv in cisco.servers %}
+                <span class="rebka-item" data-proto="CISCO" data-type="server" data-url="{{ srv }}"></span>
+            {% endfor %}
+        {% endif %}
     {% endif %}
 
-    {% if l2tp %}
+    {% if l2tp is defined and l2tp %}
         {% for srv in l2tp %}
             <span class="rebka-item" data-proto="VPN" data-type="server" data-name="L2TP Server" data-url="{{ srv }}"></span>
         {% endfor %}
     {% endif %}
-    {% if pptp %}
+    {% if pptp is defined and pptp %}
         {% for srv in pptp %}
             <span class="rebka-item" data-proto="VPN" data-type="server" data-name="PPTP Server" data-url="{{ srv }}"></span>
         {% endfor %}
@@ -879,7 +891,7 @@
     document.title = "UserPanel";
 
     function getAbsoluteSubUrl() {
-        const raw = "{{ user.subscription_url }}".trim();
+        const raw = "{{ user.subscription_url | default('', true) }}".trim();
         if (!raw || raw === "" || raw === "/") {
             return window.location.href;
         }
@@ -891,10 +903,10 @@
     }
 
     const subUrl = getAbsoluteSubUrl();
-    const rawStatus = "{{ user.status }}";
-    const usedBytes = parseFloat("{{ user.used_traffic }}") || 0;
-    const limitBytes = parseFloat("{{ user.data_limit }}") || 0;
-    const expireRaw = parseFloat("{{ user.expire }}") || 0;
+    const rawStatus = "{{ user.status.value if user.status.value is defined else user.status }}";
+    const usedBytes = parseFloat("{{ user.used_traffic | default(0) }}") || 0;
+    const limitBytes = parseFloat("{{ user.data_limit | default(0) }}") || 0;
+    const expireRaw = parseFloat("{{ user.expire | default(0) }}") || 0;
 
     function formatBytes(bytes) {
         if (!bytes || bytes <= 0) return '۰ بایت';
