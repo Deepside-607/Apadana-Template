@@ -23,7 +23,9 @@
 
 ## 🚀 راهنمای نصب
 
-### مرزبان (Marzban)
+---
+
+### 🔹 ۱. پنل مرزبان (Marzban)
 
 ابتدا قالب را با لینک زیر دانلود کنید:
 
@@ -37,7 +39,7 @@ echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /opt/m
 سپس با دستور زیر پنل خودتون رو ری‌استارت کنید:
 marzban restart
 
-ربکا (Rebecca)
+🔹 ۲. پنل ربکا (Rebecca)
 ابتدا قالب را با لینک زیر دانلود کنید:
 sudo wget -N -P /var/lib/rebecca/templates/subscription/ [https://raw.githubusercontent.com/Deepside-607/Apadana-Template/main/index.html](https://raw.githubusercontent.com/Deepside-607/Apadana-Template/main/index.html)
 
@@ -48,7 +50,7 @@ echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /opt/r
 سپس با دستور زیر پنل خودتون رو ری‌استارت کنید:
 rebecca restart
 
-پاسارگاد (Pasarguard)
+🔹 ۳. پنل پاسارگاد (Pasarguard)
 ابتدا قالب را با لینک زیر دانلود کنید:
 sudo wget -N -P /var/lib/pasarguard/templates/subscription/ [https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html](https://raw.githubusercontent.com/Deepside-607/Apadana-Template/master/index.html)
 
